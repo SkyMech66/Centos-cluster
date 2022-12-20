@@ -69,3 +69,13 @@ module "ecs-fargate" {
     Project     = "Test"
   }
 }
+
+    module "s3-bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "3.6.0"
+}
+
+resource "aws_s3_bucket_object" "centos-S3" {
+  bucket = "tf-state"
+  key    = "tf-state"
+}
